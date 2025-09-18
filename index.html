@@ -756,10 +756,7 @@
 										<form class="contact_form"
 											action="https://formsubmit.co/amishasivakumar02@gmail.com" id="contact-form"
 											method="POST">
-											<div class="returnmessage"
-												data-success="Your message has been received, We will contact you soon.">
-											</div>
-											<div class="empty_notice"><span>Please Fill Required Fields</span></div>
+											<input type="hidden" name="_captcha" value="false">
 											<div class="first">
 												<ul>
 													<li>
@@ -786,6 +783,8 @@
 												</button>
 											</div>
 
+											<p id="form-status" style="display:none;color:green;margin-top:10px;"></p>
+											
 										</form>
 									</div>
 								</div>
