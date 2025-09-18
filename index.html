@@ -141,8 +141,9 @@
 								</span>
 							</h3>
 							<p class="blc"><i>"Designing seamless experiences, one pixel at a time."</i></p>
-							<div class="cavani_tm_button transition_link" style="margin-top: 15px;">
-								<a href="#contact">Download CV</a>
+							<div class="cavani_tm_button" style="margin-top: 15px;">
+								<a href="images/Amisha_S-UI-Developer-CV.pdf"
+									download="Amisha_S-UI-Developer-CV.pdf" target="_blank">Download CV</a>
 								<a href="#contact">Hire Me</a>
 							</div>
 						</div>
@@ -583,8 +584,7 @@
 										<li>
 											<div class="list_inner">
 												<div class="image">
-													<img src="images/1-1.jpg"
-														alt="IIT NDT courses website design" />
+													<img src="images/1-1.jpg" alt="IIT NDT courses website design" />
 													<div class="main" data-img-url="images/works/p10.png"></div>
 													<div class="details">
 														<span>IIT NDT</span>
@@ -598,8 +598,7 @@
 										<li>
 											<div class="list_inner">
 												<div class="image">
-													<img src="images/1-1.jpg"
-														alt="IIT NDT bgas courses web project" />
+													<img src="images/1-1.jpg" alt="IIT NDT bgas courses web project" />
 													<div class="main" data-img-url="images/works/p11.png"></div>
 													<div class="details">
 														<span>IIT NDT</span>
@@ -613,8 +612,7 @@
 										<li>
 											<div class="list_inner">
 												<div class="image">
-													<img src="images/1-1.jpg"
-														alt="Kollengode Tourism website projec" />
+													<img src="images/1-1.jpg" alt="Kollengode Tourism website projec" />
 													<div class="main" data-img-url="images/works/p12.png"></div>
 													<div class="details">
 														<span>Kollengode Tourism</span>
@@ -628,8 +626,7 @@
 										<li>
 											<div class="list_inner">
 												<div class="image">
-													<img src="images/1-1.jpg"
-														alt="Royal Branding services project" />
+													<img src="images/1-1.jpg" alt="Royal Branding services project" />
 													<div class="main" data-img-url="images/works/p13.png"></div>
 													<div class="details">
 														<span>Royal Branding</span>
@@ -785,7 +782,6 @@
 											action="https://formsubmit.co/amishasivakumar02@gmail.com" id="contact-form"
 											method="POST">
 
-											<!-- FormSubmit hidden fields -->
 											<input type="hidden" name="_captcha" value="false">
 											<div class="first">
 												<ul>
@@ -810,7 +806,6 @@
 											<div class="cavani_tm_button">
 												<button type="submit">Send Message</button>
 											</div>
-											<!-- this will show a success message inline -->
 											<p id="form-status"
 												style="display:none;color:rgb(0, 0, 0);margin-top:10px;">
 											</p>
@@ -869,7 +864,7 @@
 						</li>
 						<li><a href="mailto:amishasivakuma02&#64;gmail.com" target="_blank"><img class="svg"
 									src="images/icons/mail.svg" alt=""></a></li>
-						<li><a href="https://wa.me/918590782500?text=Hello, I am messaging you from your portfolio"
+						<li><a href="https://wa.me/918590782500?text=Hello Amisha, I'm contacting you through your portfolio website."
 								target="_blank"><img class="svg" src="images/icons/whatsapp.svg" alt=""></a></li>
 					</ul>
 				</div>
@@ -888,13 +883,11 @@
 		<script src="js/jquery.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/init.js"></script>
-		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&amp;callback=initMap"></script>
 		<!-- /SCRIPTS -->
 
 		<script>
 			document.getElementById("contact-form").addEventListener("submit", function (e) {
-				e.preventDefault(); // stop default submission
+				e.preventDefault();
 				const form = this;
 				const status = document.getElementById("form-status");
 
@@ -904,7 +897,7 @@
 				}).then(response => {
 					if (response.ok) {
 						status.style.display = "block";
-						status.textContent = "✅ Your message has been received. We’ll contact you soon.";
+						status.textContent = "Got your message — thank you! I'll get back to you shortly.";
 						form.reset();
 					} else {
 						alert("There was a problem submitting your form.");
