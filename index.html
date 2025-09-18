@@ -351,7 +351,7 @@
 											<div class="list_inner">
 												<div class="text">
 													<i class="icon-quote-left"></i>
-													<p>Amisha quickly understands tasks, solves problems calmly, and adds
+													<p>Amisha quickly understands tasks, solves problems calmly and adds
 														real value to every website.</p>
 												</div>
 												<div class="details">
@@ -756,35 +756,32 @@
 										<form class="contact_form"
 											action="https://formsubmit.co/amishasivakumar02@gmail.com" id="contact-form"
 											method="POST">
-											<div class="returnmessage"
-												data-success="Your message has been received, We will contact you soon.">
-											</div>
-											<div class="empty_notice"><span>Please Fill Required Fields</span></div>
-											<div class="first">
-												<ul>
-													<li>
-														<input id="name" type="text" placeholder="Name"
-															autocomplete="off">
-													</li>
-													<li>
-														<input id="phone" type="text" placeholder="Phone"
-															autocomplete="off">
-													</li>
-													<li>
-														<input id="email" type="text" placeholder="Email"
-															autocomplete="off">
-													</li>
-												</ul>
-											</div>
-											<div class="last">
-												<textarea id="message" placeholder="Message"></textarea>
-											</div>
-											<div class="cavani_tm_button">
-												<button type="submit">
-													Send Message
-												</button>
-											</div>
 
+											<!-- FormSubmit hidden fields -->
+											<input type="hidden" name="_captcha" value="false">
+
+											<ul>
+												<li>
+													<input name="name" id="name" type="text" placeholder="Name"
+														required>
+												</li>
+												<li>
+													<input name="phone" id="phone" type="text" placeholder="Phone"
+														required>
+												</li>
+												<li>
+													<input name="email" id="email" type="email" placeholder="Email"
+														required>
+												</li>
+											</ul>
+
+											<textarea name="message" id="message" placeholder="Message"
+												required></textarea>
+
+											<button type="submit">Send Message</button>
+
+											<!-- this will show a success message inline -->
+											<p id="form-status" style="display:none;color:green;margin-top:10px;"></p>
 										</form>
 									</div>
 								</div>
@@ -862,7 +859,29 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&amp;callback=initMap"></script>
 		<!-- /SCRIPTS -->
 
-</body>
+		<script>
+			document.getElementById("contact-form").addEventListener("submit", function (e) {
+				e.preventDefault(); // stop default submission
+				const form = this;
+				const status = document.getElementById("form-status");
 
+				fetch(form.action, {
+					method: "POST",
+					body: new FormData(form)
+				}).then(response => {
+					if (response.ok) {
+						status.style.display = "block";
+						status.textContent = "✅ Your message has been received. We'll contact you soon.";
+						form.reset();
+					} else {
+						alert("There was a problem submitting your form.");
+					}
+				}).catch(err => {
+					alert("Network error. Please try again.");
+				});
+			});
+		</script>
+
+</body>
 
 </html>
