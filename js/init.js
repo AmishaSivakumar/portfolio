@@ -6,38 +6,40 @@ function my_portfolio_modalbox() {
 }
 function my_portfolio_page_transition() {
   "use strict";
-  var e = jQuery(".my_portfolio_section"),
-    a = jQuery(".transition_link li"),
-    i = jQuery(".transition_link a"),
-    t = jQuery(".my_portfolio_all_wrap"),
-    n = t.data("enter"),
-    r = t.data("exit");
-  i.on("click", function () {
-    var i = jQuery(this),
-      s = i.attr("href");
-    if (i.parent().hasClass("my_portfolio_button"))
-      return (
-        jQuery('.menu .transition_link a[href="' + s + '"]').trigger("click"),
-        hashtag(),
-        !1
-      );
-    var o = jQuery(s),
-      c = i.closest("li");
-    return (
-      c.hasClass("active") ||
-        (a.removeClass("active"),
-        t.find(e).removeClass("animated " + n),
-        t.hasClass("opened") && t.find(e).addClass("animated " + r),
-        c.addClass("active"),
-        t.addClass("opened"),
-        t
-          .find(o)
-          .removeClass("animated " + r)
-          .addClass("animated " + n),
-        jQuery(e).addClass("hidden"),
-        jQuery(o).removeClass("hidden").addClass("active")),
-      !1
-    );
+
+  var section = jQuery(".my_portfolio_section");
+  var allLi = jQuery(".transition_link li");
+  var button = jQuery(".transition_link a");
+  var wrapper = jQuery(".my_portfolio_all_wrap");
+  var enter = wrapper.data("enter");
+  var exit = wrapper.data("exit");
+
+  button.on("click", function () {
+    var element = jQuery(this);
+    var href = element.attr("href");
+    if (element.parent().hasClass("my_portfolio_button")) {
+      jQuery('.menu .transition_link a[href="' + href + '"]').trigger("click");
+      hashtag();
+      return false;
+    }
+    var sectionID = jQuery(href);
+    var parent = element.closest("li");
+    if (!parent.hasClass("active")) {
+      allLi.removeClass("active");
+      wrapper.find(section).removeClass("animated " + enter);
+      if (wrapper.hasClass("opened")) {
+        wrapper.find(section).addClass("animated " + exit);
+      }
+      parent.addClass("active");
+      wrapper.addClass("opened");
+      wrapper
+        .find(sectionID)
+        .removeClass("animated " + exit)
+        .addClass("animated " + enter);
+      jQuery(section).addClass("hidden");
+      jQuery(sectionID).removeClass("hidden").addClass("active");
+    }
+    return false;
   });
 }
 function my_portfolio_trigger_menu() {
@@ -177,7 +179,9 @@ function my_portfolio_news_popup() {
 function my_portfolio_service_popup() {
   "use strict";
   var e = jQuery(".my_portfolio_modalbox"),
-    a = jQuery(".my_portfolio_service .service_list ul li .my_portfolio_full_link"),
+    a = jQuery(
+      ".my_portfolio_service .service_list ul li .my_portfolio_full_link"
+    ),
     i = e.find(".close");
   a.on("click", function () {
     var a = jQuery(this).closest(".list_inner"),
