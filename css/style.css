@@ -428,6 +428,10 @@ h6 {
 	transition: all .3s ease
 }
 
+.my_portfolio_mobile_menu.opened {
+	right: 0
+}
+
 .my_portfolio_mobile_menu .inner {
 	position: relative;
 	width: 100%;
@@ -2036,10 +2040,10 @@ h6 {
 		padding: 10px 28px
 	}
 
-	.circular_progress_bar .list_inner:after {
+	/* .circular_progress_bar .list_inner:after {
 		width: 80px;
 		height: 80px
-	}
+	} */
 
 	.circular_progress_bar .title {
 		max-width: 80px
